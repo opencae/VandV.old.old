@@ -1,0 +1,44 @@
+#!/bin/sh
+
+if [ -f Allcases ];then
+    Allcases=`tr '\n' ' ' < Allcases`
+else
+    Allcases=`ls -d */ | tr -d '/' | tr '\n' ' '`
+fi
+
+for dir in $Allcases
+do
+    if [ -d "$dir" -a "$dir" != "share" -a "$dir" != "validation" ];then
+	(cd $dir
+	    for file in 0 All*
+	    do
+		if [ ! -L $file ];then
+		    ln -s ../share/$file .
+		fi
+	    done
+	    
+	    for subdir in constant system plot validation
+	    do
+		if [ -d ../share/$subdir ];then
+		    if [ ! -d $subdir ];then
+			mkdir $subdir
+		    fi
+		    (cd $subdir
+			for file in ../../share/$subdir/*
+			do
+			    if [ ! -L `basename $file` ];then
+				ln -s $file .
+			    fi
+			done
+		    )
+		fi
+	    done
+
+	    if [ ! -L constant/polyMesh ];then
+		ln -s ../../share/constant/polyMesh constant/
+	    fi
+	)
+    fi
+done
+
+# ----------------------------------------------------------------- end-of-file

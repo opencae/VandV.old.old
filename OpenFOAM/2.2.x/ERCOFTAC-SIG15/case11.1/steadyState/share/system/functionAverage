@@ -1,0 +1,21 @@
+    Average
+    {
+        type            cellSource;
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        enabled         true;
+        outputControl   timeStep;
+        interval        1;
+        log             true;
+        valueOutput     false;
+        source          all;
+        sourceName      all;
+        operation       volAverage;
+        fields
+        (
+            U
+            p
+	    k
+	    epsilon
+	    omega
+        );
+    }

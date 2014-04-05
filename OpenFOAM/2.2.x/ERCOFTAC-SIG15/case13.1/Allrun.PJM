@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for dir in */
+do
+    if [ "$dir" != "template/" -a "$dir" != "validation/" ];then
+	(cd $dir
+	    ./Allrun.PJM
+	    )
+    fi
+done
+
+# ----------------------------------------------------------------- end-of-file

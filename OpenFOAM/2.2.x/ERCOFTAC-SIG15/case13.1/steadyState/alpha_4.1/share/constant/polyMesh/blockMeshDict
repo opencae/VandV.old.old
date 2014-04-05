@@ -1,0 +1,240 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 0.025;
+
+// theta=2.5[deg]
+// YpRxx=R*cos(theta)
+// Zp=R*sin(theta)
+// Zm=R*sin(-theta)
+
+// R=0.5
+YpR0p5 .49952411079092888120;
+ZpR0p5 0.02180969368266799988;
+ZmR0p5 -0.02180969368266799988;
+
+// R=0.51
+YpR0p51 0.509514593006747458824;
+ZpR0p51 0.022245887556321359877;
+ZmR0p51 -0.022245887556321359877;
+
+// R=6
+YpR6 5.99428932949114657440;
+ZpR6 0.26171632419201599856;
+ZmR6 -0.26171632419201599856;
+
+// R=10
+YpR10 9.99048221581857762400;
+ZpR10 0.43619387365335999760;
+ZmR10 -0.43619387365335999760;
+
+vertices        
+(
+(0 0 0) // 0
+(0 $YpR0p5 $ZmR0p5) // 1
+(0 $YpR0p5 $ZpR0p5) // 2
+
+(2 0 0) // 3
+(2 $YpR0p5 $ZmR0p5) // 4
+(2 $YpR0p5 $ZpR0p5) // 5
+
+(5 0 0) // 6
+(5 $YpR0p5 $ZmR0p5) // 7
+(5 $YpR0p5 $ZpR0p5) // 8
+
+(10 0 0) // 9
+(10 $YpR0p5 $ZmR0p5) // 10
+(10 $YpR0p5 $ZpR0p5) // 11
+
+(0 $YpR6 $ZmR6) // 12
+(0 $YpR6 $ZpR6) // 13
+
+(2 $YpR6 $ZmR6) // 14
+(2 $YpR6 $ZpR6) // 15
+
+(5 $YpR6 $ZmR6) // 16
+(5 $YpR6 $ZpR6) // 17
+
+// add outer region
+(0 $YpR10 $ZmR10) // 18
+(0 $YpR10 $ZpR10) // 19
+
+(2 $YpR10 $ZmR10) // 20
+(2 $YpR10 $ZpR10) // 21
+
+(5 $YpR10 $ZmR10) // 22
+(5 $YpR10 $ZpR10) // 23
+
+// add inner wall share region
+(10 $YpR6 $ZmR6) // 24
+(10 $YpR6 $ZpR6) // 25
+
+(10 $YpR10 $ZmR10) // 26
+(10 $YpR10 $ZpR10) // 27
+
+// add inner wall thickness
+(0 $YpR0p51 $ZmR0p51) // 28
+(0 $YpR0p51 $ZpR0p51) // 29
+
+(2 $YpR0p51 $ZmR0p51) // 30
+(2 $YpR0p51 $ZpR0p51) // 31
+
+(5 $YpR0p51 $ZmR0p51) // 32
+(5 $YpR0p51 $ZpR0p51) // 33
+
+(10 $YpR0p51 $ZmR0p51) // 34
+(10 $YpR0p51 $ZpR0p51) // 35
+);
+
+blocks          
+(
+hex (0 3 4 1 0 3 5 2) (40 20 1) simpleGrading (10 0.5 1)
+hex (3 6 7 4 3 6 8 5) (30 20 1) simpleGrading (0.5 0.5 1)
+hex (6 9 10 7 6 9 11 8) (20 20 1) simpleGrading (20 0.5 1)
+
+hex (28 30 14 12 29 31 15 13) (40 50 1) simpleGrading (10 10 1)
+hex (30 32 16 14 31 33 17 15) (30 50 1) simpleGrading (0.5 10 1)
+
+// add outer region
+hex (12 14 20 18 13 15 21 19) (40 10 1) simpleGrading (10 2 1)
+hex (14 16 22 20 15 17 23 21) (30 10 1) simpleGrading (0.5 2 1)
+
+// add inner wall share region
+hex (32 34 24 16 33 35 25 17) (20 50 1) simpleGrading (20 10 1)
+hex (16 24 26 22 17 25 27 23) (20 10 1) simpleGrading (20 2 1)
+
+hex (1 4 30 28 2 5 31 29) (40 1 1) simpleGrading (10 1 1)
+hex (4 7 32 30 5 8 33 31) (30 1 1) simpleGrading (0.5 1 1)
+);
+
+edges           
+(
+);
+
+boundary
+(
+    inlet
+    {
+        //        type            patch;
+        type mappedPatch;
+        offset          ( -.0624999 0 0 );
+        sampleRegion    region0;
+        sampleMode      nearestCell;
+        samplePatch     none;
+
+        faces
+            (
+                (9 10 11 9)
+            );
+    }
+
+    outlet
+    {
+        type            patch;
+        faces
+            (
+                (34 24 25 35)
+                (24 26 27 25)
+                (23 22 26 27)
+                (21 20 22 23)
+                (19 18 20 21)
+            );
+    }
+
+    slip
+    {
+        type            patch;
+        faces
+            (
+                (12 18 19 13)
+            );
+    }
+
+    rotaingWall 
+    {
+        type            wall;
+        faces
+            (
+                (0 1 2 0)
+                (28 12 13 29)
+                (1 28 29 2)
+            );
+    }
+
+    inletWall 
+    {
+        type            wall;
+        faces
+            (
+                (11 8 7 10)
+                (7 32 33 8)
+                (35 33 32 34)
+            );
+    }
+
+    back 
+    {
+        type            wedge;
+        faces
+            (
+                (3 4 1 0)
+                (30 14 12 28)
+                (6 7 4 3)
+                (32 16 14 30)
+                (9 10 7 6)
+                (14 20 18 12)
+                (16 22 20 14)
+                (24 26 22 16)
+                (34 24 16 32)
+                (1 4 30 28)
+                (4 7 32 30)
+            );
+    }
+
+    front
+    {
+        type            wedge;
+        faces
+            (
+                (0 2 5 3)
+                (29 13 15 31)
+                (3 5 8 6)
+                (31 15 17 33)
+                (6 8 11 9)
+                (13 19 21 15)
+                (15 21 23 17)
+                (17 23 27 25)
+                (33 17 25 35)
+                (2 29 31 5)
+                (5 31 33 8)
+            );
+    }
+
+    /*
+symmetryPlane axis
+(
+(0 3 3 0)
+(3 6 6 3)
+(6 9 9 6)
+)
+        */
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

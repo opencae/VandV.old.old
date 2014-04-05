@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for dir in steadyState transient validation
+do
+    if [ -d "$dir" ];then
+	(cd $dir
+	    ./Allclean
+	    )
+    fi
+done
+
+# ----------------------------------------------------------------- end-of-file

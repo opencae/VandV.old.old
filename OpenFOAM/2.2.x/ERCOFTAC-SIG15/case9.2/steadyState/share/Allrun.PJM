@@ -1,0 +1,25 @@
+#!/bin/sh
+#PJM -L "rscgrp=debug"
+#PJM -L "node=1"
+#PJM --mpi "proc=16"
+#PJM -j
+#PJM -s
+
+source /usr/local/OpenFOAM/2.2.2/OpenFOAM-2.2.2/etc/bashrc
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+if [ ! -f constant/polyMesh/points -o ! -f constant/polyMesh/points.gz ];then
+    (cd ../share
+	./Allrun.pre $*
+	)
+fi
+./Allrun.solve -p
+rm -f log.$(getApplication)
+ln -s Allrun.PJM.o$PJM_JOBID log.$(getApplication)
+./Allrun.post -p
+
+
+
+

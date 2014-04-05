@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for dir in */
+do
+    if [ "$dir" != "template/" -a "$dir" != "validation/" ];then
+	(cd $dir
+	    rsync -auv ../template/ ./
+	    ./Allsync
+	    )
+    fi
+done
+
+# ----------------------------------------------------------------- end-of-file
