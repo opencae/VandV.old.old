@@ -4,7 +4,10 @@
 
 cp -r constant/polyMesh.orig constant/polyMesh
 
+if [ -f constant/polyMesh/blockMeshDict ];then
+    runApplication blockMesh
+fi
 runApplication renumberMesh -overwrite
 runApplication checkMesh -constant 
 
-cp -r 0.orig 0
+cp -a 0.orig 0

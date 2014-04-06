@@ -10,7 +10,7 @@ source /usr/local/OpenFOAM/2.2.2/OpenFOAM-2.2.2/etc/bashrc
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
-if [ ! -f constant/polyMesh/points -o ! -f constant/polyMesh/points.gz ];then
+if [ ! -f constant/polyMesh/points -a ! -f constant/polyMesh/points.gz ];then
     (cd ../share
 	./Allrun.pre $*
 	)

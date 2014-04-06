@@ -45,7 +45,7 @@ boundaryField
         type            rotatingWallVelocity;
         origin          (0 0 0);
         axis            (1 0 0);
-        omega           0;
+        omega           41.8;
         value           uniform (0 -0 0);
     }
     inletWall

@@ -1,9 +1,7 @@
 #!/bin/sh
 # Source tutorial run functions
 
-rm -f *.eps
-
-for f in U_*.gp
+for f in *.gp
 do
     gnuplot $f
 done

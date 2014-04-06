@@ -4,7 +4,6 @@
 
 latestTime=$(foamListTimes -latestTime -case ../ )
 
-rm -f *.eps
 gnuplot res.gp
 for file in *.gp
 do

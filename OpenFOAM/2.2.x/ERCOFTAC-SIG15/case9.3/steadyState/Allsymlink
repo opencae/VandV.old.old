@@ -10,7 +10,7 @@ for dir in $Allcases
 do
     if [ -d "$dir" -a "$dir" != "share" -a "$dir" != "validation" ];then
 	(cd $dir
-	    for file in 0 All*
+	    for file in 0 Allclean Allrun Allrun.PJM Allrun.post Allrun.pre Allrun.solve
 	    do
 		if [ ! -L $file ];then
 		    ln -s ../share/$file .

@@ -46,8 +46,8 @@ runTimeModifiable yes;
 
 functions
 {
-#include        "functionMinMax"
   //#include        "functionAverage"
+#include        "functionMinMax"
 }
 
 // ************************************************************************* //
