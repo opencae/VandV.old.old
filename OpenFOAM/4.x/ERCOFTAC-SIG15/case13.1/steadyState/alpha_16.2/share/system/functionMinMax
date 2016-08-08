@@ -1,0 +1,27 @@
+    MinMax
+    {
+        // Type of functionObject
+        type            fieldMinMax;
+
+        // Where to load it from (if not already in solver)
+        functionObjectLibs ("libfieldFunctionObjects.so");
+
+        // Function object enabled flag
+        enabled         true;
+
+        // Log to output (default: false)
+        log             true;
+
+        // Write information to file (default: true)
+        write           true;
+
+        // Fields to be monitored - runTime modifiable
+        fields
+        (
+            U
+            p
+	    k
+	    epsilon
+	    omega
+        );
+    }

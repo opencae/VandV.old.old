@@ -1,0 +1,25 @@
+
+This directory contains line data extracted from the 2D-PIV
+results:
+
+x0.65off.dat  x0.66on.dat   x0.9off.dat   x1.0on.dat    x1.2off.dat   x1.3on.dat
+x0.65on.dat   x0.8off.dat   x0.9on.dat    x1.1off.dat   x1.2on.dat
+x0.66off.dat  x0.8on.dat    x1.0off.dat   x1.1on.dat    x1.3off.dat
+
+where, for example, x0.65off.dat indicates data along a
+vertical line at x/c=0.65, suction OFF, and x0.65on.dat
+indicates data along a vertical line at x/c=0.65, suction ON.
+
+This data includes both U/Uinf and V/Uinf, as well as
+the turbulent stresses uu/Uinf^2, vv/Uinf^2, and uv/Uinf^2.
+It was taken from 2D-PIV by extracting along an index 
+of the PIV grid nearest to the desired x/c location.
+
+It should be noted that the turbulence uv data has a maximum
+error of as much as 20%, and urms and vrms have a maximum
+error of as much as 14%, based on a pseudo-empirical
+uncertainty analysis.  Therefore, the turbulence data given
+here should not be taken as absolute levels, but rather
+should be used to assist in qualitative evaluation of
+turbulence models.
+

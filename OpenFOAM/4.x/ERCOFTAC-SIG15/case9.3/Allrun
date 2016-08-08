@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for dir in steadyState transient
+do
+    if [ -d "$dir" ];then
+	(cd $dir
+	    ./Allrun $*
+	    )
+    fi
+done
+
+# ----------------------------------------------------------------- end-of-file

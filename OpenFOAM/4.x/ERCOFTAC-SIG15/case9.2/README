@@ -1,0 +1,8 @@
+ERCOFTAC SIG15 Case 9.2
+Periodic flow over a 2-D hill
+
+* Reference:
+http://www.ercoftac.org/fileadmin/user_upload/bigfiles/sig15/database/9.2/
+
+* Mesh data is converted from Code_Saturne test case:
+http://cfd.mace.manchester.ac.uk/twiki/bin/view/Saturne/WebHome

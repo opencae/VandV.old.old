@@ -1,0 +1,10 @@
+ERCOFTAC SIG15 Case 11.1
+2D hump with flow control through a slot jet
+
+* Reference:
+http://www.ercoftac.org/fileadmin/user_upload/bigfiles/sig15/database/11.1/index.html
+
+http://cfdval2004.larc.nasa.gov/case3.html
+
+* Mesh data is converted from: 
+http://www.ercoftac.org/fileadmin/user_upload/bigfiles/sig15/database/11.1/case3grids.html
