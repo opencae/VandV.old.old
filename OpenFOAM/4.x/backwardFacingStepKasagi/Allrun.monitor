@@ -1,0 +1,8 @@
+#!/bin/sh
+file=postProcessing/residuals/0/residuals.dat
+while [ ! -f  $file ]
+do
+  sleep 1
+done
+
+foamMonitor -l $file &
