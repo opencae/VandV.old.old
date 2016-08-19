@@ -30,12 +30,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    upperWall
-    {
-        type            epsilonWallFunction;
-        value           $internalField;
-    }
-    lowerWall
+    ".*Wall"
     {
         type            epsilonWallFunction;
         value           $internalField;

@@ -25,21 +25,12 @@ boundaryField
         type            timeVaryingMappedFixedValue;
         offset          (0 0 0);
         setAverage      off;
-        /*
-        type            fixedValue;
-        value           uniform (1 0 0);
-            */
     }
     outlet
     {
         type            zeroGradient;
     }
-    upperWall
-    {
-        type            fixedValue;
-        value           uniform (0 0 0);
-    }
-    lowerWall
+    ".*Wall"
     {
         type            fixedValue;
         value           uniform (0 0 0);

@@ -30,12 +30,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    upperWall
-    {
-        type            kqRWallFunction;
-        value           $internalField;
-    }
-    lowerWall
+    ".*Wall"
     {
         type            kqRWallFunction;
         value           $internalField;

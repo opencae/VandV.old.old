@@ -20,7 +20,7 @@ FoamFile
 // Data on points
 328
 (
-// min_x
+// min_z
 7.44E-04
 7.44E-04
 7.44E-04
@@ -185,7 +185,7 @@ FoamFile
 6.97E-04
 6.97E-04
 6.97E-04
-// max_x
+// max_z
 7.44E-04
 7.44E-04
 7.44E-04

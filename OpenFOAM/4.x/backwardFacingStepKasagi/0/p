@@ -29,11 +29,7 @@ boundaryField
         type            fixedValue;
         value           uniform 0;
     }
-    upperWall
-    {
-        type            zeroGradient;
-    }
-    lowerWall
+    ".*Wall"
     {
         type            zeroGradient;
     }

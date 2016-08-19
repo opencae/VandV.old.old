@@ -30,12 +30,7 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
-    upperWall
-    {
-        type            nutkWallFunction;
-        value           uniform 0;
-    }
-    lowerWall
+    ".*Wall"
     {
         type            nutkWallFunction;
         value           uniform 0;

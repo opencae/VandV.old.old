@@ -1,6 +1,6 @@
 #!/bin/sh
 
-postProcess -latestTime -func sample > log.postProcess 2>&1
+postProcess -latestTime -func sample > log.sample 2>&1
 
 GNUPLOT=$(which gnuplot 2> /dev/null)
 if [ "x$GNUPLOT" = "x" ]
@@ -29,7 +29,7 @@ base=`basename ${PWD}`
 CONVERT=$(which convert 2> /dev/null)
 if [ ! "x$CONVERT" = "x" ]
 then
-    $CONVERT -density 300 -resize 1200x1200 $epsfiles $base.pdf
+    $CONVERT -density 300 $epsfiles $base.pdf
 else
     echo "convert not installed" >&2
 fi

@@ -17,7 +17,6 @@ FoamFile
 type sets;
 libs ("libsampling.so");
 
-//interpolationScheme cellPointFace;
 interpolationScheme cellPoint;
 
 setFormat raw;
