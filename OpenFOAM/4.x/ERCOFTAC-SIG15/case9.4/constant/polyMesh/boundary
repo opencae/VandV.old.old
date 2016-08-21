@@ -1,0 +1,107 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+9
+(
+    inlet
+    {
+        type            patch;
+        nFaces          110;
+        startFace       4686361;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          110;
+        startFace       4686471;
+    }
+    celling
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          750;
+        startFace       4686581;
+    }
+    floor
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          20948;
+        startFace       4687331;
+    }
+    side
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          6766;
+        startFace       4708279;
+    }
+    body
+    {
+        type            wall;
+        inGroups        
+2
+(
+AhmedGroup
+wall
+)
+;
+        nFaces          46450;
+        startFace       4715045;
+    }
+    head
+    {
+        type            wall;
+        inGroups        
+2
+(
+AhmedGroup
+wall
+)
+;
+        nFaces          17564;
+        startFace       4761495;
+    }
+    leg
+    {
+        type            wall;
+        inGroups        
+2
+(
+AhmedGroup
+wall
+)
+;
+        nFaces          1920;
+        startFace       4779059;
+    }
+    slant
+    {
+        type            wall;
+        inGroups        
+2
+(
+AhmedGroup
+wall
+)
+;
+        nFaces          3537;
+        startFace       4780979;
+    }
+)
+
+// ************************************************************************* //
