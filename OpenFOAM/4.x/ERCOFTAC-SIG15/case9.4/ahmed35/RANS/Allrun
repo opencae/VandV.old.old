@@ -1,0 +1,32 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Set application name
+application=`getApplication`
+
+# Preprocessing
+runApplication surfaceFeatureExtract
+runApplication blockMesh
+cp system/decomposeParDict.scotch system/decomposeParDict
+
+# Meshing
+runApplication decomposePar
+cp system/decomposeParDict.ptscotch system/decomposeParDict
+runParallel snappyHexMesh -overwrite
+runApplication reconstructParMesh -constant
+
+# Run application
+ls -d processor* | xargs -I {} rm -rf ./{}/0
+ls -d processor* | xargs -I {} cp -r 0.org ./{}/0
+runParallel renumberMesh -overwrite
+runParallel potentialFoam -initialiseUBCs -noFunctionObjects
+runParallel ${application}
+
+# Postprocessing
+runParallel postProcess -latestTime -func sample
+runParallel ${application} -latestTime -postProcess -func yPlus
+
+#------------------------------------------------------------------------------
