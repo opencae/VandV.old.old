@@ -1,0 +1,141 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      sample;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPointFace;
+
+setFormat raw;
+
+sets
+(
+    x-243
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.243 0.0 0.051);
+        end             (-0.243 0.0 0.5);
+    }
+    x-223
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.223 0.0 0.051);
+        end             (-0.223 0.0 0.5);
+    }
+    x-203
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.203 0.0 0.051);
+        end             (-0.203 0.0 0.5);
+    }
+    x-183
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.183 0.0 0.051);
+        end             (-0.183 0.0 0.5);
+    }
+    x-163
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.163 0.0 0.051);
+        end             (-0.163 0.0 0.5);
+    }
+    x-143
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.143 0.0 0.051);
+        end             (-0.143 0.0 0.5);
+    }
+    x-123
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.123 0.0 0.051);
+        end             (-0.123 0.0 0.5);
+    }
+    x-103
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.103 0.0 0.051);
+        end             (-0.103 0.0 0.5);
+    }
+    x-83
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.083 0.0 0.051);
+        end             (-0.083 0.0 0.5);
+    }
+    x-63
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.063 0.0 0.051);
+        end             (-0.063 0.0 0.5);
+    }
+    x-43
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.043 0.0 0.051);
+        end             (-0.043 0.0 0.5);
+    }
+    x-23
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.023 0.0 0.051);
+        end             (-0.023 0.0 0.5);
+    }
+    x-3
+    {
+        type            face;
+        axis            xyz;
+        start           (-0.003 0.0 0.051);
+        end             (-0.003 0.0 0.5);
+    }
+    x+37
+    {
+        type            face;
+        axis            xyz;
+        start           (0.037 0.0 0.0);
+        end             (0.037 0.0 0.5);
+    }
+    x+87
+    {
+        type            face;
+        axis            xyz;
+        start           (0.087 0.0 0.0);
+        end             (0.087 0.0 0.5);
+    }
+
+);
+
+fields
+(
+    U
+);
+
+
+// ************************************************************************* //
