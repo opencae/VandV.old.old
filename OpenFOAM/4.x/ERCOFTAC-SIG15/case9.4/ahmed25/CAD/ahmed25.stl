@@ -1,4 +1,4 @@
-solid Mesh
+solid body
   facet normal 0 0 -1
     outer loop
        vertex -0.386187 0.15863 0.05
@@ -1203,6 +1203,8 @@ solid Mesh
        vertex -0.944 0.1945 0.338
     endloop
   endfacet
+endsolid body
+solid head
   facet normal -0.959792 -0 -0.280712
     outer loop
        vertex -1.04081 0.11956 0.12494
@@ -2841,6 +2843,8 @@ solid Mesh
        vertex -0.998976 -0.178032 0.321532
     endloop
   endfacet
+endsolid head
+solid leg
   facet normal 0.999147 -0.0413055 0
     outer loop
        vertex -0.827 0.1635 -0
@@ -8105,6 +8109,8 @@ solid Mesh
        vertex -0.386795 -0.165969 0
     endloop
   endfacet
+endsolid leg
+solid slant
   facet normal 0.422618 0 0.906308
     outer loop
        vertex -0.2012 -0.1945 0.338
@@ -8119,4 +8125,4 @@ solid Mesh
        vertex -0.2012 0.1945 0.338
     endloop
   endfacet
-endsolid Mesh
+endsolid slant

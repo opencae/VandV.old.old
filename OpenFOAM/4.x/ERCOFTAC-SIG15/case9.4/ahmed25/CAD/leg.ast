@@ -1,4 +1,4 @@
-solid Mesh
+solid "leg"
   facet normal 0.999147 -0.041305 0.000000
     outer loop
       vertex -827.000000 163.500000 -0.000000
@@ -5263,4 +5263,4 @@ solid Mesh
       vertex -386.795410 -165.968918 0.000000
     endloop
   endfacet
-endsolid Mesh
+endsolid "leg"

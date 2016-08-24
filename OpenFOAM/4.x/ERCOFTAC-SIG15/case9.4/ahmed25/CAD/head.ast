@@ -1,4 +1,4 @@
-solid Mesh
+solid "head"
   facet normal -0.959792 -0.000000 -0.280712
     outer loop
       vertex -1040.808960 119.560234 124.939766
@@ -1637,4 +1637,4 @@ solid Mesh
       vertex -998.975830 -178.032379 321.532379
     endloop
   endfacet
-endsolid Mesh
+endsolid "head"

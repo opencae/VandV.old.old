@@ -1,4 +1,4 @@
-solid Mesh
+solid "body"
   facet normal 0.000000 0.000000 -1.000000
     outer loop
       vertex -386.187256 158.629501 50.000000
@@ -1203,4 +1203,4 @@ solid Mesh
       vertex -944.000000 194.500000 338.000000
     endloop
   endfacet
-endsolid Mesh
+endsolid "body"

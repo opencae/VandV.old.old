@@ -1,4 +1,4 @@
-solid Mesh
+solid "slant"
   facet normal 0.573576 0.000000 0.819152
     outer loop
       vertex -181.851761 -194.500000 338.000000
@@ -13,4 +13,4 @@ solid Mesh
       vertex -181.851761 194.500000 338.000000
     endloop
   endfacet
-endsolid Mesh
+endsolid "slant"
