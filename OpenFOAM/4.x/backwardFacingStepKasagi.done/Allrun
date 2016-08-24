@@ -1,0 +1,8 @@
+#!/bin/sh
+
+./Allrun.pre
+[ "$1" = "-m" ] && ./Allrun.monitor &
+./Allrun.solve
+./Allrun.post
+./Allrun.plot
+
