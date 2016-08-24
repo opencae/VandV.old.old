@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 4.0
+Exec   :
+Date   :
+Time   :
+Host   :
+PID    :
+Case   :
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 85
+
+Reading set description:
+    x=-2H
+    x=-1H
+    x=0H
+    x=1H
+    x=2H
+    x=3H
+    x=4H
+    x=5H
+    x=6H
+    x=7H
+    x=8H
+    x=9H
+    x=10H
+    x=11H
+    x=12H
+    x=13H
+    x=14H
+    x=15H
+    measuringPoints
+    reattachment
+
+Time = 85
+
+Reading fields:
+    volScalarFields: k
+    volVectorFields: U
+
+Executing functionObjects
+
+End
+

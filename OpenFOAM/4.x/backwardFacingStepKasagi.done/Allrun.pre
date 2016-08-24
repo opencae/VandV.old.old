@@ -1,0 +1,5 @@
+#!/bin/sh
+
+blockMesh > log.blockMesh 2>&1
+postProcess -func 'patchAverage(name=inlet,U)' > log.Ubulk
+

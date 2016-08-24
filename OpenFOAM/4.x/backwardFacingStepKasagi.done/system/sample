@@ -1,0 +1,178 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sample;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPoint;
+
+setFormat raw;
+
+sets
+(
+    x=-2H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (-2 1 0.5);
+        end             (-2 4 0.5);
+    }
+    x=-1H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (-1 1 0.5);
+        end             (-1 4 0.5);
+    }
+    x=0H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (0 1 0.5);
+        end             (0 4 0.5);
+    }
+    x=1H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (1 0 0.5);
+        end             (1 4 0.5);
+    }
+    x=2H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (2 0 0.5);
+        end             (2 4 0.5);
+    }
+    x=3H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (3 0 0.5);
+        end             (3 4 0.5);
+    }
+    x=4H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (4 0 0.5);
+        end             (4 4 0.5);
+    }
+    x=5H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (5 0 0.5);
+        end             (5 4 0.5);
+    }
+    x=6H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (6 0 0.5);
+        end             (6 4 0.5);
+    }
+    x=7H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (7 0 0.5);
+        end             (7 4 0.5);
+    }
+    x=8H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (8 0 0.5);
+        end             (8 4 0.5);
+    }
+    x=9H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (9 0 0.5);
+        end             (9 4 0.5);
+    }
+    x=10H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (10 0 0.5);
+        end             (10 4 0.5);
+    }
+    x=11H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (11 0 0.5);
+        end             (11 4 0.5);
+    }
+    x=12H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (12 0 0.5);
+        end             (12 4 0.5);
+    }
+    x=13H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (13 0 0.5);
+        end             (13 4 0.5);
+    }
+    x=14H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (14 0 0.5);
+        end             (14 4 0.5);
+    }
+    x=15H
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (14.99999 0 0.5);
+        end             (14.99999 4 0.5);
+    }
+
+    measuringPoints
+    {
+        type cloud;
+        axis xyz;
+        points          
+        (
+#include "measuringPoints"
+        );
+    }
+
+    reattachment
+    {
+        type            midPoint;
+        axis            xyz;
+        start           (  0 1e-6 1);
+        end             ( 15 1e-6 1);
+    }
+);
+
+fields
+(
+    U
+    k
+);
+
+// ************************************************************************* //

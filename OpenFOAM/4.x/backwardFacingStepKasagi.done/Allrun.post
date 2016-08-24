@@ -1,0 +1,6 @@
+#!/bin/sh
+
+simpleFoam -latestTime -postProcess -func yPlus > log.yPlus 2>&1
+streamFunction -latestTime > log.streamFunction 2>&1
+postProcess -func 'patchIntegrate(name=outlet,phi)' -latestTime > log.flowRate_outlet 2>&1
+postProcess -func 'patchIntegrate(name=inlet,phi)' -latestTime > log.flowRate_inlet 2>&1
