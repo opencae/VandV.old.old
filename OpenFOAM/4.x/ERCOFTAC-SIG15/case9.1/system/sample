@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.6                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        system;
+    object          sampleDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPoint;
+
+setFormat raw;
+
+sets
+(
+    x5.1mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.0051 0.0         0);
+        end         (0.0051 0.060883938 0);
+    }
+
+    x25.4mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.0254 0.0         0);
+        end         (0.0254 0.060883938 0);
+    }
+
+    x50.8mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.0508 0.0         0);
+        end         (0.0508 0.060883938 0);
+    }
+
+    x101.6mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.1016 0.0         0);
+        end         (0.1016 0.060883938 0);
+    }
+
+    x152.4mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.1524 0.0         0);
+        end         (0.1524 0.060883938 0);
+    }
+
+    x203.2mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.2032 0.0         0);
+        end         (0.2032 0.060883938 0);
+    }
+
+    x304.8mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.3048 0.0         0);
+        end         (0.3048 0.060883938 0);
+    }
+
+    x406.4mm
+    {
+        type        midPoint;
+        axis        xyz;
+
+        start       (0.4064 0.0         0);
+        end         (0.4064 0.060883938 0);
+    }
+);
+
+fields
+(
+    U
+    k
+);
+
+// *********************************************************************** //

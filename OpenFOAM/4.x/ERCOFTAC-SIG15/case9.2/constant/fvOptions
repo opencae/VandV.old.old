@@ -1,0 +1,24 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+momentumSource
+{
+    type            meanVelocityForce;
+    active          yes;
+
+    meanVelocityForceCoeffs
+    {
+        selectionMode   all;
+
+        fields      (U);
+        Ubar        (5.675893 0 0 );
+    }
+}
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for dir in ahmed35/
+do
+    (cd $dir
+	./Allclean $*
+	)
+done
+
+# ----------------------------------------------------------------- end-of-file

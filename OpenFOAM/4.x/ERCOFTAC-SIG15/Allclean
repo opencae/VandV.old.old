@@ -1,18 +1,10 @@
 #!/bin/sh
 
-if [ -f Allcases ];then
-    Allcases=`tr '\n' ' ' < Allcases`
-else
-    Allcases=`ls -d */ | tr -d '/' | tr '\n' ' '`
-fi
-
-for dir in $Allcases
+for dir in */
 do
-    if [ -d "$dir" -a "$dir" != "share" -a "$dir" != "validation" ];then
-	(cd $dir
-	    ./Allclean
-	    )
-    fi
+    (cd $dir
+	./Allclean $*
+	)
 done
 
 # ----------------------------------------------------------------- end-of-file

@@ -1,0 +1,36 @@
+All LDV data includes the followings(36 column):
+
+z/H	y(micron)	U(m/s)	V	W	u^2	v^2	w^2	uv	uw	vw	u^2v	u^2w	v^2w	uv^2	uw^2	vw^2	uvw	u^3	v^3	w^3	continue..
+
+SSA	TKE		Vqv	Vqw	FA	Ruv	Ruw	Rvw	A1	S	1/S	B	B1	B2	B2/B1 	
+
+where, 	SSA : shear stress angle(deg), arctan((vw)/(uv))
+	TKE : turbulent kinetic energy normalized by Uref
+	Vqv & Vqw : mean transport velocity of TKE, normalized by Uref
+	FA : flow angle(deg), arctan(W/U)
+	Ruv : correlation coefficient, -uv/(sqrt(u^2)*sqrt(v^2))
+	A1 : sqrt((uv)^2+(vw)^2)/(u^2+v^2+w^2)
+	S : v^2/sqrt((uv)^2+(vw)^2)
+	B : v^3/(u^2v+v^3+vw^2)
+	B1 : v^3/sqrt((u^2v)^2+(vw^2)^2)
+	B2 : v^3/sqrt((uv^2)^2+(v^2w)^2)
+
+File name : 2dyandu.dat : 2D flow profile
+	    3yandu.dat
+		where, "3" means profile number
+		profile number	z/H
+			1	0.8143
+		     	2	0.6515
+			3	0.4886
+			.	.
+			.	.
+			.	.
+			24	-2.6059
+			25	-2.8502
+
+NOTE : 2d flow profile, "2dyandu.dat' was measured at x/H=0.
+
+LDV measurement location:
+	Large bump#3 : x/H=3.63
+	Small bump#3 : x/H=3.26
+	Bump#1 : x/H=3.46

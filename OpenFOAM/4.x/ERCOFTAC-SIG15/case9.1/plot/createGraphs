@@ -1,0 +1,130 @@
+#!/bin/sh
+#------------------------------------------------------------------------------
+# =========                 |
+# \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+#  \\    /   O peration     |
+#   \\  /    A nd           | Copyright (C) 2011 OpenFOAM Foundation
+#    \\/     M anipulation  |
+#-------------------------------------------------------------------------------
+# License
+#     This file is part of OpenFOAM.
+#
+#     OpenFOAM is free software: you can redistribute it and/or modify it
+#     under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+#     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+#     for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Script
+#     createGraphs
+#
+# Description
+#
+#------------------------------------------------------------------------------
+
+createEpsU()
+{
+    X=$1
+    OFDATAROOT=$2
+    EXPTDATAROOT=$3
+
+    gnuplot<<EOF
+set terminal postscript enhanced eps color solid "Times,22" lw 2
+set output "U_x${X}mm.eps"
+set pointsize 1.4
+set xlabel "{/Times-Italic U} [m/s]"
+set ylabel "{/Times-Italic r} [m]"
+set xrange [-0.5:2]
+set yrange [0:]
+set title "{/Times-Italic x} = $X [mm]"
+set key below box
+plot \
+     "$EXPTDATAROOT/x${X}mm.txt" index 0 using 2:((\$1)/1000) with p pt 1 lc 0 title "Exp.", \
+     "$OFDATAROOT/x${X}mm_U.xy" using 4:2 with l lt 1 title "CFD"
+EOF
+}
+
+createEpsV()
+{
+    X=$1
+    OFDATAROOT=$2
+    EXPTDATAROOT=$3
+
+    gnuplot<<EOF
+set terminal postscript enhanced eps color solid "Times,22" lw 2
+set output "V_x${X}mm.eps"
+set pointsize 1.4
+set xlabel "{/Times-Italic V} [m/s]"
+set ylabel "{/Times-Italic r} [m]"
+set xrange [-0.2:1]
+set yrange [0:]
+set title "{/Times-Italic x} = $X [mm]"
+set key below box
+plot \
+     "$EXPTDATAROOT/x${X}mm.txt" index 0 using 4:((\$1)/1000) with p pt 1 lc 0 title "Exp.", \
+     "$OFDATAROOT/x${X}mm_U.xy" using 5:2 with l lt 1 title "CFD"
+EOF
+}
+
+createEpsuv()
+{
+    X=$1
+    OFDATAROOT=$2
+    EXPTDATAROOT=$3
+
+    gnuplot<<EOF
+set terminal postscript enhanced eps color solid "Times,22" lw 2
+set output "V_x${X}mm.eps"
+set pointsize 1.4
+set xlabel "{/Times-Italic uv} [m^2/s^2]"
+set ylabel "{/Times-Italic r} [m]"
+set yrange [0:]
+set title "{/Times-Italic x} = $X [mm]"
+set key below box
+plot \
+     "$EXPTDATAROOT/x${X}mm.txt" index 0 using 6:((\$1)/1000) with p pt 1 lc 0 title "Exp.", \
+     "$OFDATAROOT/x${X}mm_R.xy" using 5:2 with l lt 1 title "CFD"
+EOF
+}
+
+# test if gnuplot exists on the system
+type -P gnuplot &>/dev/null || {
+    echo "gnuplot not found - skipping graph creation" >&2
+    exit 1
+}
+
+SETSDIR="postProcessing/sample"
+
+if [ ! -d $SETSDIR ]
+then
+    echo "createGraphs: results sets not available in folder $SETSDIR"
+    exit 0
+fi
+
+# paths to data
+LATESTTIME=`ls $SETSDIR`
+OFDATAROOT=postProcessing/sample/$LATESTTIME
+
+EXPTDATAROOT=plot/exptData
+
+# generate temperature profiles
+Xs="5.1 25.4 50.8 101.6 152.4 203.2 304.8 406.4"
+for X in $Xs
+do
+    echo "    processing profile at x = $X"
+
+    createEpsU $X $OFDATAROOT $EXPTDATAROOT
+    createEpsV $X $OFDATAROOT $EXPTDATAROOT
+#    createEpsuv $X $OFDATAROOT $EXPTDATAROOT
+done
+
+echo Done
+
+#------------------------------------------------------------------------------

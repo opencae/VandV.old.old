@@ -1,12 +1,10 @@
 #!/bin/sh
 
-for dir in steadyState transient
+for dir in */
 do
-    if [ -d "$dir" ];then
-	(cd $dir
-	    ./Allrun $*
-	    )
-    fi
+    (cd $dir
+	./Allrun $*
+	)
 done
 
 # ----------------------------------------------------------------- end-of-file

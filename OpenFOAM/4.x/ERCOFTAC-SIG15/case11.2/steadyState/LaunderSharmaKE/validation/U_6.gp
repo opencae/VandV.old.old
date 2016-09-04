@@ -1,1 +1,0 @@
-../../share/validation/U_6.gp

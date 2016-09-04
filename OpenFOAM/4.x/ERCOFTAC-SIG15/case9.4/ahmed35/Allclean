@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for dir in RANS/
+do
+    (cd $dir
+	./Allclean $*
+	)
+done
+
+# ----------------------------------------------------------------- end-of-file

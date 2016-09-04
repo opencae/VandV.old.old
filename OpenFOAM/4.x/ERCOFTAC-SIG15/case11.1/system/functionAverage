@@ -1,0 +1,22 @@
+    Average
+    {
+        type            volRegion;
+        libs ("libfieldFunctionObjects.so");
+        enabled         true;
+	writeControl    timeStep;
+	writeInterval   1;
+        log             true;
+        writeFields     false;
+        regionType      all;
+        name            all;
+        operation       volAverage;
+
+        fields
+        (
+            U
+            p
+	    k
+	    epsilon
+	    omega
+        );
+    }

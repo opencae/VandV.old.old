@@ -1,12 +1,10 @@
 #!/bin/sh
 
-for dir in steadyState transient validation
+for dir in */
 do
-    if [ -d "$dir" ];then
-	(cd $dir
-	    ./Allclean
-	    )
-    fi
+    (cd $dir
+	./Allclean $*
+	)
 done
 
 # ----------------------------------------------------------------- end-of-file

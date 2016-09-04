@@ -20,13 +20,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         10000;
+endTime         5000;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   1000;
+writeInterval   100;
 
 purgeWrite      2;
 
@@ -44,8 +44,8 @@ runTimeModifiable yes;
 
 functions
 {
-#include        "functionAverage"
-#include        "functionMinMax"
+    //#include        "functionAverage"
+    //#include        "functionMinMax"
 #includeFunc    residuals
 }
 

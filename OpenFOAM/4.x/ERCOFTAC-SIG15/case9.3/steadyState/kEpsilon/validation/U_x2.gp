@@ -1,1 +1,0 @@
-../../share/validation/U_x2.gp

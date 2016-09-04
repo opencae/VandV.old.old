@@ -1,0 +1,91 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.6                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        system;
+    object          sampleDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPoint;
+
+setFormat raw;
+
+sets
+(
+    x0.5
+    {
+        type        uniform;
+        axis        distance;
+
+        //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.014 0.0 0.005);
+        end         (0.014 0.085 0.005);
+        nPoints     30;
+    }
+
+    x2
+    {
+        type        uniform;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.056 0.0 0.005);
+        end         (0.056 0.085 0.005);
+        nPoints     30;
+    }
+
+    x4
+    {
+        type        uniform;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.112 0.0 0.005);
+        end         (0.112 0.085 0.005);
+        nPoints     30;
+    }
+
+    x6
+    {
+        type        uniform;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.168 0.0 0.005);
+        end         (0.168 0.085 0.005);
+        nPoints     30;
+    }
+
+    x8
+    {
+        type        uniform;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.224 0.0 0.005);
+        end         (0.224 0.085 0.005);
+        nPoints     30;
+    }
+);
+
+fields
+(
+    U
+    k
+);
+
+// *********************************************************************** //

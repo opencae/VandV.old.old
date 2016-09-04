@@ -1,7 +1,0 @@
-#!/bin/sh
-# Source tutorial run functions
-
-for f in *.gp
-do
-    gnuplot $f
-done

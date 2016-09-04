@@ -1,0 +1,123 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.6                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        system;
+    object          sampleDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPoint;
+
+setFormat raw;
+
+sets
+(
+    section_065
+    {
+        type        midPoint;
+        axis        distance;
+
+        //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.273 0 7.5e-3);
+        end         (0.273 0.075 7.5e-3);
+        nPoints     100;
+    }
+/*
+    section_066
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.2772 0.0 0.21);
+        end         (0.2772 0.075 0.21);
+        nPoints     100;
+    }
+*/
+    section_08
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.336 0 7.5e-3);
+        end         (0.336 0.075 7.5e-3);
+        nPoints     100;
+    }
+  
+    section_09
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.378 0 7.5e-3);
+        end         (0.378 0.075 7.5e-3);
+        nPoints     100;
+    }
+    section_10
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.42 0 7.5e-3);
+        end         (0.42 0.075 7.5e-3);
+        nPoints     100;
+    }
+
+    section_11
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.462 0 7.5e-3);
+        end         (0.462 0.075 7.5e-3);
+        nPoints     100;
+    }
+
+    section_12
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.504 0 7.5e-3);
+        end         (0.504 0.075 7.5e-3);
+        nPoints     100;
+    }
+
+    section_13
+    {
+        type        midPoint;
+        axis        distance;
+
+    //- cavity. Slightly perturbed so not to align with face or edge.
+        start       (0.546 0 7.5e-3);
+        end         (0.546 0.075 7.5e-3);
+        nPoints     100;
+    }
+
+);
+
+fields
+(
+    U
+);
+
+// *********************************************************************** //

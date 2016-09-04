@@ -1,0 +1,18 @@
+    MinMax
+    {
+        type            fieldMinMax;
+        libs ("libfieldFunctionObjects.so");
+        enabled         true;
+        log             true;
+        write           true;
+	writeControl    timeStep;
+	writeInterval   1;
+        fields
+        (
+            U
+            p
+	    k
+	    epsilon
+	    omega
+        );
+    }
